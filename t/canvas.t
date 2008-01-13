@@ -5,7 +5,7 @@
 # ex: set ts=8 sw=4 et
 #########################################################################
 use Test::More tests => 58;
-use WWW::Facebook::API;
+use WWW::Bebo::API;
 use strict;
 use warnings;
 
@@ -65,7 +65,7 @@ $q->set_param(
     custom_2           => 6,
 );
 
-my $api = WWW::Facebook::API->new( app_path => 'test' );
+my $api = WWW::Bebo::API->new( app_path => 'test' );
 
 ok $api->canvas->get_fb_params($q), 'get_fb_params returns';
 is keys %{ $api->canvas->get_fb_params }, 4, 'get_fb_params keys';
@@ -128,39 +128,39 @@ SKIP: {
     $user = delete $q->{'fb_sig_user'};
     is $api->require_frame, 1, 'require frame outside frame';
     $test_stdout->setpos(0);
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 
     $q->{'fb_sig_in_iframe'} = 1;
     ok !$api->require_frame($q), 'require_frame in frame';
     test_cgi_redirect( $test_stdout, undef );
 
     is $api->require_login, 1, 'require_login in frame';
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 
     delete $q->{'fb_sig_in_iframe'};
     is $api->require_login($q), 1, 'require_login outside frame';
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 
     $q->{'fb_sig_in_canvas'} = 1;
     ok !$api->require_frame($q), 'require_frame in canvas';
     test_cgi_redirect( $test_stdout, undef );
 
     is $api->require_login,
-        qq{<fb:redirect url="http://www.facebook.com/login.php?api_key=23432&v=1.0&canvas" />},
+        qq{<fb:redirect url="http://www.bebo.com/login.php?api_key=23432&v=1.0&canvas" />},
         'require_login in canvas';
 
     delete $q->{'fb_sig_in_canvas'};
     is $api->require_login($q), 1, 'require_login outside canvas';
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 
     is $api->require_add, 1, 'require_add';
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 
     is $api->require_frame, 1, 'require_frame';
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 
     is $api->require_login, 1, 'require_login';
-    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.facebook.com/test/ } );
+    test_cgi_redirect( $test_stdout, qr{Status: 302 (Found|Moved) Location: http://apps.bebo.com/test/ } );
 }
 
 SKIP: {
@@ -194,14 +194,14 @@ SKIP: {
     is $api->require_login, undef, 'require_login in canvas';
     test_cgi_redirect( $test_stdout, undef );
 
-    is $api->require_add, '<fb:redirect url="http://www.facebook.com/add.php?api_key=23432&v=1.0" />', 'require_add in canvas';
+    is $api->require_add, '<fb:redirect url="http://www.bebo.com/add.php?api_key=23432&v=1.0" />', 'require_add in canvas';
     test_cgi_redirect( $test_stdout, undef );
 
     delete $q->{'fb_sig_in_canvas'};
     is $api->require_login($q), undef, 'require_login outside canvas';
     test_cgi_redirect( $test_stdout, undef );
 
-    is $api->require_add, qq{<script type="text/javascript">top.location.href = "http://www.facebook.com/add.php?api_key=23432&v=1.0"</script>\n}, 'require_add w/o fb_sig_added';
+    is $api->require_add, qq{<script type="text/javascript">top.location.href = "http://www.bebo.com/add.php?api_key=23432&v=1.0"</script>\n}, 'require_add w/o fb_sig_added';
     test_cgi_redirect( $test_stdout, undef );
 
     $q->{'fb_sig_added'} = 1;

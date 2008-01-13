@@ -5,11 +5,11 @@
 # ex: set ts=8 sw=4 et
 #########################################################################
 use Test::More tests => 19;
-use WWW::Facebook::API;
+use WWW::Bebo::API;
 use strict;
 use warnings;
 
-my $api = WWW::Facebook::API->new( api_key => 1, secret => 2 );
+my $api = WWW::Bebo::API->new( api_key => 1, secret => 2 );
 
 @_ = ();
 is $api->_add_url_params(
@@ -52,7 +52,7 @@ $params = { method => 'auth.hi' };
 $api->_check_values_of( $params );
 is keys %$params, 5, 'params amount';
 ok !exists $params->{'session_key'}, 'session key not set';
-is $params->{'method'}, 'facebook.auth.hi', 'method changed';
+is $params->{'method'}, 'bebo.auth.hi', 'method changed';
 ok $params->{'call_id'}, 'call_id added';
 is $params->{'v'}, '1.0', 'version added';
 is $params->{'api_key'}, 1, 'api_key added';
@@ -62,7 +62,7 @@ $api->desktop(0);
 my $time = time();
 $params = { call_id => $time, method => 'hello' };
 $api->_check_values_of( $params );
-is $params->{'method'}, 'facebook.hello', 'method changed again';
+is $params->{'method'}, 'bebo.hello', 'method changed again';
 is $params->{'call_id'}, $time, 'time not reset';
 is $params->{'session_key'}, q{}, 'session key set from object\'s value';
 ok !exists $params->{'callback'}, 'callback not set';
@@ -70,7 +70,7 @@ ok !exists $params->{'callback'}, 'callback not set';
 # Mostly just testing that session_key's passed in value is kept...
 $params = { method => 'hello2', session_key => 'foo' };
 $api->_check_values_of( $params );
-is $params->{'method'}, 'facebook.hello2', 'method changed again';
+is $params->{'method'}, 'bebo.hello2', 'method changed again';
 is $params->{'session_key'}, q{foo}, 'session key not changed';
 ok !exists $params->{'callback'}, 'callback not set';
 

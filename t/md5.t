@@ -8,7 +8,7 @@ use Test::More tests => 3;
 use strict;
 use warnings;
 
-BEGIN { use_ok('WWW::Facebook::API'); }
+BEGIN { use_ok('WWW::Bebo::API'); }
 
 chdir 't' if -d 't';
 
@@ -23,7 +23,7 @@ my %params = (
 my $sig    = 'f73d589a6f305f914b0086654f0b7f43';
 my $secret = 'garden';
 $params{'markup'} = join '', <DATA>;
-my $api = WWW::Facebook::API->new;
+my $api = WWW::Bebo::API->new;
 
 is $api->generate_sig(
     params => \%params,

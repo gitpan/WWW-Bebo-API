@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 sub create_token {
     my $self = shift;
@@ -123,7 +123,7 @@ WWW::Bebo::API::Auth - Bebo Authentication
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Auth version 0.0.01
+This document describes WWW::Bebo::API::Auth version 0.0.02
 
 =head1 SYNOPSIS
 

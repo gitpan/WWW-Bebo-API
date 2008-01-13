@@ -5,20 +5,20 @@
 # ex: set ts=8 sw=4 et
 #########################################################################
 use Test::More;
-use WWW::Facebook::API;
+use WWW::Bebo::API;
 use strict;
 use warnings;
 
 BEGIN {
     if ( 3 != grep defined,
-        @ENV{qw/WFA_API_KEY_TEST WFA_SECRET_TEST WFA_SESSION_KEY_TEST/} )
+        @ENV{qw/WBA_API_KEY_TEST WBA_SECRET_TEST WBA_SESSION_KEY_TEST/} )
     {
         plan skip_all => 'Live tests require API key, secret, and session';
     }
     plan tests => 2;
 }
 
-my $api = WWW::Facebook::API->new( app_path => 'test' );
+my $api = WWW::Bebo::API->new( app_path => 'test' );
 
 my $events = $api->events->get;
 is ref $events, 'ARRAY', 'get returns array ref';

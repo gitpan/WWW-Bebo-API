@@ -8,10 +8,10 @@ use Test::More tests => 11;
 use strict;
 use warnings;
 
-BEGIN { use_ok('WWW::Facebook::API'); }
+BEGIN { use_ok('WWW::Bebo::API'); }
 
-my $api = WWW::Facebook::API->new( api_key => 1, secret => 1 );
-isa_ok $api, 'WWW::Facebook::API';
+my $api = WWW::Bebo::API->new( api_key => 1, secret => 1 );
+isa_ok $api, 'WWW::Bebo::API';
 
 for ( map { ( qq{"$_"}, $_ ) } q{true}, q{1} ) {
     is $api->_parse($_), 1, "no ref $_ returns correct";

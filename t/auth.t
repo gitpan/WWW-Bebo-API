@@ -6,12 +6,12 @@
 #########################################################################
 use Test::More;
 
-# Tries use subs 'system', but after use WWW::Facebook::API, didn't work :-(
-# May have something to do with autogenerating WWW::Facebook::API::* in
-# API.pm? Anyway, this is needed for testing WWW::Facebook::API::Auth->login
+# Tries use subs 'system', but after use WWW::Bebo::API, didn't work :-(
+# May have something to do with autogenerating WWW::Bebo::API::* in
+# API.pm? Anyway, this is needed for testing WWW::Bebo::API::Auth->login
 BEGIN { *CORE::GLOBAL::system = sub { 0 }; }
 
-use WWW::Facebook::API;
+use WWW::Bebo::API;
 use strict;
 use warnings;
 
@@ -24,7 +24,7 @@ BEGIN {
 }
 
 my $api = Test::MockObject::Extends->new(
-    WWW::Facebook::API->new(
+    WWW::Bebo::API->new(
         api_key        => 1,
         secret         => 1,
         parse_response => 1,
@@ -37,7 +37,7 @@ my $api = Test::MockObject::Extends->new(
     $api->set_series( '_post_request', <DATA> );
 }
 
-my $auth = WWW::Facebook::API::Auth->new( base => $api );
+my $auth = WWW::Bebo::API::Auth->new( base => $api );
 
 my $token = $auth->create_token;
 is $token, '3e4a22bb2f5ed75114b0fc9995ea85f1', 'token correct';

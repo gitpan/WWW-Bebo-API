@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 sub add_tag      { return shift->base->call( 'photos.addTag',      @_ ) }
 sub create_album { return shift->base->call( 'photos.createAlbum', @_ ) }
@@ -28,7 +28,7 @@ WWW::Bebo::API::Photos - Bebo Photos
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Photos version 0.0.01
+This document describes WWW::Bebo::API::Photos version 0.0.02
 
 =head1 SYNOPSIS
 

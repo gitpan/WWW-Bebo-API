@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 sub refresh_img_src { return shift->base->call( 'fbml.refreshImgSrc', @_ ) }
 sub refresh_ref_url { return shift->base->call( 'fbml.refreshRefUrl', @_ ) }
@@ -19,7 +19,7 @@ WWW::Bebo::API::FBML - Bebo Markup Language
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::FBML version 0.0.01
+This document describes WWW::Bebo::API::FBML version 0.0.02
 
 =head1 SYNOPSIS
 

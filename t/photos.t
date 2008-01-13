@@ -5,15 +5,15 @@
 # ex: set ts=8 sw=4 et
 #########################################################################
 use Test::More tests => 9;
-use WWW::Facebook::API;
+use WWW::Bebo::API;
 use strict;
 use warnings;
 
-my $api = WWW::Facebook::API->new( app_path => 'test' );
+my $api = WWW::Bebo::API->new( app_path => 'test' );
 
 {
     no warnings 'redefine';
-    local *WWW::Facebook::API::call = sub { shift; return [@_] };
+    local *WWW::Bebo::API::call = sub { shift; return [@_] };
     is_deeply $api->photos->add_tag(
         pid  => 1,
         tags => '[{"x":"30.0","y":"30.0","uid":1234567890}]'
@@ -48,7 +48,7 @@ my $api = WWW::Facebook::API->new( app_path => 'test' );
 
 SKIP: {
     if ( 3 != grep defined,
-        @ENV{qw/WFA_API_KEY_TEST WFA_SECRET_TEST WFA_SESSION_KEY_TEST/} ) {
+        @ENV{qw/WBA_API_KEY_TEST WBA_SECRET_TEST WBA_SESSION_KEY_TEST/} ) {
         skip 'Live tests require API key, secret, and session' => 3;
     }
 

@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 sub set_fbml { return shift->base->call( 'profile.setFBML', @_ ) }
 sub get_fbml { return shift->base->call( 'profile.getFBML', @_ ) }
@@ -24,7 +24,7 @@ WWW::Bebo::API::Profile - Bebo Profile
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Profile version 0.0.01
+This document describes WWW::Bebo::API::Profile version 0.0.02
 
 =head1 SYNOPSIS
 

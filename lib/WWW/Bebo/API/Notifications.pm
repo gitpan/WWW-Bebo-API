@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 sub get  { return shift->base->call( 'notifications.get',  @_ ) }
 sub send { return shift->base->call( 'notifications.send', @_ ) } ## no critic
@@ -25,7 +25,7 @@ WWW::Bebo::API::Notifications - Bebo Notifications
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Notifications version 0.0.01
+This document describes WWW::Bebo::API::Notifications version 0.0.02
 
 =head1 SYNOPSIS
 

@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 sub get_info { return shift->base->call( 'users.getInfo', @_ ); }
 
@@ -39,7 +39,7 @@ WWW::Bebo::API::Users - Bebo Users
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Users version 0.0.01
+This document describes WWW::Bebo::API::Users version 0.0.02
 
 =head1 SYNOPSIS
 

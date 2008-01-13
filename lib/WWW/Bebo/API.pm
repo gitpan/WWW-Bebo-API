@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 use LWP::UserAgent;
 use Time::HiRes qw(time);
@@ -114,7 +114,6 @@ sub _set_from_file {
     my $self     = shift;
     my $app_path = shift;
     my %ENV_VARS = @_;
-
     open my $config, '<', $self->{'config'}    ## no critic
         or croak "Cannot open $self->{'config'}";
 

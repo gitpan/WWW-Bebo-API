@@ -5,20 +5,20 @@
 # ex: set ts=8 sw=4 et
 #########################################################################
 use Test::More;
-use WWW::Facebook::API;
+use WWW::Bebo::API;
 use strict;
 use warnings;
 
 BEGIN {
     if ( 3 != grep defined,
-        @ENV{qw/WFA_API_KEY_TEST WFA_SECRET_TEST WFA_SESSION_KEY_TEST/} )
+        @ENV{qw/WBA_API_KEY_TEST WBA_SECRET_TEST WBA_SESSION_KEY_TEST/} )
     {
         plan skip_all => 'Live tests require API key, secret, and session';
     }
     plan tests => 4;
 }
 
-my $api = WWW::Facebook::API->new(
+my $api = WWW::Bebo::API->new(
     app_path => 'test',
     parse    => 1,
     format   => 'XML'
@@ -28,7 +28,7 @@ SKIP: {
     eval q{use Test::Warn};
     skip 'Test::Warn required' => 1 if $@;
     no warnings 'redefine';
-    local $WWW::Facebook::API::{log_string} = sub {q{}};
+    local $WWW::Bebo::API::{log_string} = sub {q{}};
     $api->debug(1);
     warnings_are ( sub { $api->events->get },
     [ q{}, 'format is XML: setting parse to 0' ],

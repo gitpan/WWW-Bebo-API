@@ -9,7 +9,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.01');
+use version; our $VERSION = qv('0.0.02');
 
 # always return an array reference. The value returned by Bebo is a hash
 # reference when there are no results, so this shouldn't be a problem.
@@ -27,7 +27,7 @@ WWW::Bebo::API::FQL - Bebo Query Language
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::FQL version 0.0.01
+This document describes WWW::Bebo::API::FQL version 0.0.02
 
 =head1 SYNOPSIS
 
