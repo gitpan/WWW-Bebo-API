@@ -18,10 +18,10 @@ for ( qw/api_key secret desktop session_key/ ) {
 my $fn = 'wfa';
 open my $file, '>', $fn or die "Cannot write to '$fn'";
 print { $file } <<"END_CONFIG";
-WFA_API_KEY=1
-WFA_SECRET=2
-WFA_SESSION_KEY=3
-WFA_DESKTOP=4   
+WBA_API_KEY=1
+WBA_SECRET=2
+WBA_SESSION_KEY=3
+WBA_DESKTOP=4   
 END_CONFIG
 close $file;
 

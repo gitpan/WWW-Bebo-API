@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.02');
+use version; our $VERSION = qv('0.0.03');
 
 sub publish_story_to_user {
     return shift->base->call( 'feed.publishStoryToUser', @_ );
@@ -33,7 +33,7 @@ WWW::Bebo::API::Feed - Bebo Feeds
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Feed version 0.0.02
+This document describes WWW::Bebo::API::Feed version 0.0.03
 
 =head1 SYNOPSIS
 

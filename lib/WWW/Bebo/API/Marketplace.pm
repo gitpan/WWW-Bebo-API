@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.02');
+use version; our $VERSION = qv('0.0.03');
 
 sub get_categories {
     return shift->base->call( 'marketplace.getCategories', @_ );
@@ -46,7 +46,7 @@ WWW::Bebo::API::Marketplace - Bebo Marketplace
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Marketplace version 0.0.02
+This document describes WWW::Bebo::API::Marketplace version 0.0.03
 
 =head1 SYNOPSIS
 

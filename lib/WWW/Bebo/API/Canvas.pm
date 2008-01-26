@@ -9,7 +9,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.02');
+use version; our $VERSION = qv('0.0.03');
 
 sub get_fb_params {
     my $self = shift;
@@ -82,7 +82,7 @@ WWW::Bebo::API::Canvas - Bebo Canvas
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Canvas version 0.0.02
+This document describes WWW::Bebo::API::Canvas version 0.0.03
 
 =head1 SYNOPSIS
 

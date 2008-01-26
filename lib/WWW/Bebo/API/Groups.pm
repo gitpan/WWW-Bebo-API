@@ -10,7 +10,7 @@ use warnings;
 use strict;
 use Carp;
 
-use version; our $VERSION = qv('0.0.02');
+use version; our $VERSION = qv('0.0.03');
 
 sub get         { return shift->base->call( 'groups.get',        @_ ) }
 sub get_members { return shift->base->call( 'groups.getMembers', @_ ) }
@@ -24,7 +24,7 @@ WWW::Bebo::API::Groups - Bebo Groups
 
 =head1 VERSION
 
-This document describes WWW::Bebo::API::Groups version 0.0.02
+This document describes WWW::Bebo::API::Groups version 0.0.03
 
 =head1 SYNOPSIS
 
